@@ -1,0 +1,12 @@
+# RetinaLive Pro 👁️
+A real-time retinal infection detection app using Deep Learning, OpenCV, and Streamlit.
+
+## Features
+- Detects retinal infections in real-time.
+- Built with PyTorch, OpenCV, and Streamlit.
+- Uses FastAPI backend and Streamlit frontend.
+
+## Run Locally
+```bash
+pip install -r requirements.txt
+streamlit run app.py
