@@ -15,7 +15,6 @@ import os
 DATASET_DIR = Path("datasets/train")
 ZIP_PATH = Path("datasets/dataset.zip")
 
-# Extract dataset if not already extracted
 if not DATASET_DIR.exists():
     st.info("📂 Extracting dataset...")
     with zipfile.ZipFile(ZIP_PATH, 'r') as zip_ref:
