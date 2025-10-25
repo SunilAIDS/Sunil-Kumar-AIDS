@@ -10,3 +10,5 @@ matplotlib
 scikit-learn
 tqdm
 requests
+bcrypt
+
