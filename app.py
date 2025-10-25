@@ -8,6 +8,26 @@ from torchvision import datasets, transforms
 from model import RetinaNet
 from gradcam import GradCAM
 from utils import *
+import gdown
+import zipfile
+import os
+
+# -------------------- Download Dataset from Google Drive (Once) --------------------
+DATASET_DIR = Path("datasets/train")
+ZIP_PATH = Path("datasets/dataset.zip")
+
+if not DATASET_DIR.exists():
+    os.makedirs("datasets", exist_ok=True)
+    url = "https://drive.google.com/uc?id=YOUR_FILE_ID"  # Replace with your Google Drive file ID
+    if not ZIP_PATH.exists():
+        st.info("📥 Downloading dataset from Google Drive...")
+        gdown.download(url, str(ZIP_PATH), quiet=False)
+        st.success("✅ Download complete!")
+    st.info("📂 Extracting dataset...")
+    with zipfile.ZipFile(ZIP_PATH, 'r') as zip_ref:
+        zip_ref.extractall("datasets")
+    st.success("✅ Dataset extracted!")
+    ZIP_PATH.unlink()  # Remove the ZIP after extraction
 
 # -------------------- Setup --------------------
 st.set_page_config(page_title="RetinaLive Pro", layout="wide", page_icon="🩺")
